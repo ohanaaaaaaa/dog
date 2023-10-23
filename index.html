@@ -1,0 +1,261 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>地球不只有人类</title>
+    <meta name="description" content="Re01 编程课的Flex布局演示。" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <style>
+      body {
+        margin: 0;
+        /* vh 是view height 既视窗高度的意思，100就是100%占满窗口高度 */
+        height: 100vh;
+        background-color: #eee;
+      }
+      /* * {
+        border: 1px solid #333;
+      } */
+      .flex {
+        display: flex;
+      }
+      /* 占满比例 */
+      .flex1 {
+        flex: 1;
+      }
+      /* 竖向 */
+      .column {
+        flex-direction: column;
+      }
+      /* 阴影 */
+      .yinYing {
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+      }
+      /* 白色背景 */
+      .baiSe {
+        background-color: #fff;
+      }
+      .huangse {
+        background-color: #edc5ab;
+      }
+      /* 上下左右外边距 */
+      .mg8 {
+        margin: 8px;
+      }
+      /* 右外边距 */
+      .mgr8 {
+        margin-right: 8px;
+      }
+      /* 上外边距 */
+      .mgt8 {
+        margin-top: 8px;
+      }
+      /* 四个小盒子 */
+      .shuJu {
+        height: 150px;
+      }
+      /* 中间的大盒子 */
+      .lieBiaoXiang {
+        height: 160px;
+      }
+      /* 导航条 */
+
+      /* 当屏幕宽度小于600px时要改变的css */
+      @media (max-width: 600px) {
+        /* 小屏幕上取消侧边栏，后面学js时会教怎么弹出 */
+        .ceBian {
+          display: none;
+        }
+        /* 内容栏和数据栏flex方向改为竖向 */
+        .neiRong {
+          flex-direction: column;
+        }
+        .shuJuQu {
+          flex-direction: column;
+        }
+        /* 右区加左外边距 */
+        .youQu {
+          margin-left: 8px;
+        }
+        /* 数据块外边距，大小改为自动宽高 */
+        .shuJu {
+          margin: 0 0 8px;
+          flex: auto;
+        }
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f7ebeb;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+
+      li a.active {
+        background-color: #fc7821;
+        color: white;
+      }
+      li a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+      }
+      h1 {
+        margin: 5px;
+        font-size: 30px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body class="flex">
+    <!-- 侧边栏 -->
+    <div
+      style="width: 200px; z-index: 3; background-color: #f7ebeb"
+      class="ceBian flex column baiSe yinYing"
+    >
+      <!-- 侧边头像栏 -->
+      <div
+        style="
+          padding: 10px;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #999;
+        "
+        class="flex"
+      >
+        <img
+          alt="logo"
+          src="C:\Users\lenovo\Desktop\logp.jpg"
+          width="100%"
+          height="100%"
+        />
+      </div>
+      <!-- 导航栏 -->
+      <div class="flex1">
+        <ul>
+          <li>
+            <a
+              class="active"
+              href="file:///D:/vscode/%E6%88%91%E7%9A%84%E4%B8%BB%E9%A1%B5.html"
+              target="_blank"
+              >我的主页</a
+            >
+          </li>
+          <li><a href="#C1">江湖趣事</a></li>
+          <li><a href="#contact">悬壶济世</a></li>
+          <li><a href="#about">汪汪大侠</a></li>
+          <li><a href="#about">咪咪剑客</a></li>
+          <li><a href="#about">悬赏名单</a></li>
+          <li><a href="#about">关于我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- 主区域 -->
+    <div class="flex flex1 column">
+      <!-- 头部栏 -->
+      <div
+        style="height: 60px; z-index: 2; background-color: #f7ebeb"
+        class="yinYing"
+      >
+        <p style="font-size: 20px; margin-left: 50px">
+          做无名小花，做快乐小狗：）
+        </p>
+      </div>
+      <!-- 内容区 -->
+      <div class="flex flex1 neiRong" style="overflow: auto">
+        <!-- 左区 -->
+        <div style="flex: 3" class="flex column mg8">
+          <!-- 数据区 -->
+          <div class="flex shuJuQu">
+            <!-- 四个小块显示重点数据 -->
+            <div class="shuJu huangse yinYing flex1 mgr8"></div>
+            <div class="shuJu huangse yinYing flex1 mgr8"></div>
+            <div class="shuJu huangse yinYing flex1 mgr8"></div>
+            <div class="shuJu huangse yinYing flex1"></div>
+          </div>
+          <!-- 列表区，列表数据可以无限增加 -->
+          <div class="flex column">
+            <!-- 列表项 -->
+            <div class="lieBiaoXiang mgt8 huangse yinYing">
+              <div>
+                <a
+                  href="https://baijiahao.baidu.com/s?id=1780261919773249073&wfr=spider&for=pc"
+                >
+                  <h1>
+                    <a id="C1">女童</a>被罗威纳犬咬伤后：小区物业持捕狗网巡逻
+                  </h1>
+                </a>
+                <p>
+                  四川2岁女童在小区内被狗咬伤一事持续引发关注。目前女童家属拒绝了狗主人家属想见面的请求。其表示，被害人会提出申请，对涉案犬进行安乐死。另外，家属可能还会追究小区物业的责任。
+                  有目击者表示，事发时曾有男子试图营救女童，但困于布满刀片的围墙，未能成功。
+                  九派新闻在现场探访发现，目前小区草坪已经被修剪，安保也加强。还有人持捕狗网巡逻...
+                </p>
+              </div>
+            </div>
+            <div class="lieBiaoXiang mgt8 huangse yinYing">
+              <a
+                href="https://www.douyin.com/user/self?modal_id=7292348914068475188&showTab=like"
+              >
+                <h1>在学校勒死流浪狗，高校保安被开除</h1>
+              </a>
+              <p>
+                近日，网传学校一名安保人员驱赶处置流浪狗事件引发关注，经学校调查核实，情况属实。
+                经查，我校一名安保人员在驱赶处置流浪狗时，工作严重失当，导致流浪狗死亡，造成严重不良影响。目前，学校已对涉事安保人员予以辞退处理，对部门负责人追究管理责任。
+                作为学校工作人员，爱心是底线标准......
+              </p>
+            </div>
+            <div class="lieBiaoXiang mgt8 huangse yinYing">
+              <a
+                href="https://baijiahao.baidu.com/s?id=1756068304177011016&wfr=spider&for=pc"
+              >
+                <h1>
+                  流浪狗戈壁：陪跑英国运动员，迷倒英国女王，它的故事感动无数人
+                </h1>
+              </a>
+              <p>
+                “呯”，随着一声枪响，所有的运动员冲出的起跑线。这是2019年的巴黎马拉松比赛起点，人们发现在奔跑的运动员队伍中有一个“另类”。
+                一只金黄色的小狗奔跑在运动员队伍中，而且它还挂着运动员号牌。
+              </p>
+            </div>
+            <div class="lieBiaoXiang mgt8 huangse yinYing"></div>
+            <div class="lieBiaoXiang mgt8 huangse yinYing"></div>
+          </div>
+        </div>
+        <!-- 右区 -->
+        <div style="flex: 1" class="youQu flex column mgr8 mgt8">
+          <!-- 提示区 -->
+          <div style="height: 200px" class="huangse yinYing">
+            <img
+              src="C:\Users\lenovo\Desktop\love.jpg"
+              width="100%"
+              height="100%"
+            />
+          </div>
+          <!-- 消息区 -->
+          <div style="height: 300px" class="mgt8 huangse yinYing">
+            <h1 style="text-align: center">今日吉天汪历</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
